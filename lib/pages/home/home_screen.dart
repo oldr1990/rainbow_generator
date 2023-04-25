@@ -21,43 +21,8 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
     _controller =
         AnimationController(vsync: this, duration: const Duration(seconds: 4));
-    _topAnimationAlignment = TweenSequence<Alignment>([
-      TweenSequenceItem(
-        tween: Tween(begin: Alignment.topLeft, end: Alignment.topRight),
-        weight: 1,
-      ),
-      TweenSequenceItem(
-        tween: Tween(begin: Alignment.topRight, end: Alignment.bottomRight),
-        weight: 1,
-      ),
-      TweenSequenceItem(
-        tween: Tween(begin: Alignment.bottomRight, end: Alignment.bottomLeft),
-        weight: 1,
-      ),
-      TweenSequenceItem(
-        tween: Tween(begin: Alignment.bottomLeft, end: Alignment.topLeft),
-        weight: 1,
-      ),
-    ]).animate(_controller);
-    _bottomAnimationAlignment = TweenSequence<Alignment>([
-      TweenSequenceItem(
-        tween: Tween(begin: Alignment.bottomRight, end: Alignment.bottomLeft),
-        weight: 1,
-      ),
-      TweenSequenceItem(
-        tween: Tween(begin: Alignment.bottomLeft, end: Alignment.topLeft),
-        weight: 1,
-      ),
-      TweenSequenceItem(
-        tween: Tween(begin: Alignment.topLeft, end: Alignment.topRight),
-        weight: 1,
-      ),
-      TweenSequenceItem(
-        tween: Tween(begin: Alignment.topRight, end: Alignment.bottomRight),
-        weight: 1,
-      ),
-    ]).animate(_controller);
-
+    _topAnimationAlignment = topTweenSequence().animate(_controller);
+    _bottomAnimationAlignment = bottomTweenSequence().animate(_controller);
     _controller.repeat();
   }
 
@@ -114,4 +79,22 @@ class _HomeScreenState extends State<HomeScreen>
       },
     );
   }
+
+  TweenSequence<Alignment> topTweenSequence() => TweenSequence<Alignment>([
+        tween(Alignment.topLeft, Alignment.topRight),
+        tween(Alignment.topRight, Alignment.bottomRight),
+        tween(Alignment.bottomRight, Alignment.bottomLeft),
+        tween(Alignment.bottomLeft, Alignment.topLeft),
+      ]);
+
+  TweenSequence<Alignment> bottomTweenSequence() => TweenSequence<Alignment>([
+        tween(Alignment.bottomRight, Alignment.bottomLeft),
+        tween(Alignment.bottomLeft, Alignment.topLeft),
+        tween(Alignment.topLeft, Alignment.topRight),
+        tween(Alignment.topRight, Alignment.bottomRight),
+      ]);
+
+  TweenSequenceItem<Alignment> tween(Alignment begin, Alignment end) =>
+      TweenSequenceItem<Alignment>(
+          tween: Tween(begin: begin, end: end), weight: 1);
 }
