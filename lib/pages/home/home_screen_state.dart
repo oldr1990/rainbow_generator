@@ -5,10 +5,10 @@ class HomeScreenState {
   Color titleColor;
   Color backgroundColorA;
   Color backgroundColorB;
-  Color mainColor;
+  Color mainTextColor;
 
   HomeScreenState(this.appBarColor, this.titleColor, this.backgroundColorA,
-      this.backgroundColorB, this.mainColor);
+      this.backgroundColorB, this.mainTextColor);
 
   static init() => HomeScreenState(Colors.blueAccent, Colors.white,
       Colors.green, Colors.cyan, Colors.white);
@@ -18,13 +18,13 @@ class HomeScreenState {
     Color? titleColor,
     Color? backgroundColorA,
     Color? backgroundColorB,
-    Color? mainColor,
+    Color? mainTextColor,
   }) {
     return HomeScreenState(
         appBarColor ?? this.appBarColor,
         titleColor ?? this.titleColor,
         backgroundColorA ?? this.backgroundColorA,
         backgroundColorB ?? this.backgroundColorB,
-        mainColor ?? this.mainColor);
+        mainTextColor ?? this.mainTextColor);
   }
 }

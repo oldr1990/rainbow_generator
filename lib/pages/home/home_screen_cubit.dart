@@ -18,7 +18,7 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
       state.copyWith(
         backgroundColorA: background,
         backgroundColorB: state.backgroundColorA,
-        mainColor: mainText,
+        mainTextColor: mainText,
       ),
     );
   }

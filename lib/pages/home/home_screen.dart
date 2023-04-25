@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen>
                           style: Theme.of(context)
                               .textTheme
                               .titleLarge
-                              ?.copyWith(color: state.mainColor),
+                              ?.copyWith(color: state.mainTextColor),
                         ),
                       ),
                     );
