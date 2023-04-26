@@ -23,9 +23,7 @@ class MyApp extends StatelessWidget {
       locale: locale,
       localizationsDelegates: localizationsDelegates,
       onGenerateRoute: navigation,
-      theme: MediaQuery.of(context).platformBrightness == Brightness.dark
-          ? RainbowGeneratorTheme.dark()
-          : RainbowGeneratorTheme.light(),
+      theme: RainbowGeneratorTheme.light(),
       title: AppLocalizations.of(context)?.title ?? "Rainbow Generator",
     );
   }
